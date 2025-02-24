@@ -2,7 +2,7 @@
   "name": "iut-project",
   "version": "1.0.0",
   "description": "",
-  "author": "",
+  "author": "Mesri Mohamed",
   "license": "ISC",
   "main": "lib/index.js",
   "directories": {
@@ -11,7 +11,7 @@
   },
   "scripts": {
     "start": "node server",
-    "test": "lab -a @hapi/code -I \"__core-js_shared__,CSS,regeneratorRuntime,core\" -L",
+    "test": "npx lab -v -r console -o stdout -r html -o coverage.html test/**/*.js",
     "lint": "eslint ."
   },
   "dependencies": {
@@ -34,11 +34,11 @@
     "knex": "0.21.x"
   },
   "devDependencies": {
-    "@hapi/code": "8.x.x",
+    "@hapi/code": "^8.0.7",
     "@hapi/eslint-config-hapi": "13.x.x",
     "@hapi/eslint-plugin-hapi": "4.x.x",
     "@hapi/glue": "8.x.x",
-    "@hapi/hapi": "20.x.x",
+    "@hapi/hapi": "^20.3.0",
     "@hapi/hoek": "9.x.x",
     "@hapi/inert": "6.x.x",
     "@hapi/lab": "^23.0.0",

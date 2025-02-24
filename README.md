@@ -44,7 +44,8 @@ DB_PORT=3306
 ```
 Alternative via Docker :
 
-```docker run -d --name hapi-mysql -e MYSQL_ROOT_PASSWORD=hapi -e MYSQL_DATABASE=user mysql:8.0 --default-authentication-plugin=mysql_native_password -p <port nom utilisé>:3306 
+```
+docker run -d --name hapi-mysql -e MYSQL_ROOT_PASSWORD=hapi -e MYSQL_DATABASE=user mysql:8.0 --default-authentication-plugin=mysql_native_password -p <port nom utilisé>:3306 
 ```
 
 *Configuration SMTP*
@@ -56,23 +57,26 @@ SMTP_PASS=votre_mot_de_passe_smtp
 ```
 
 *Configuration RabbitMQ*
-``` RABBITMQ_URL=amqp://localhost 
+``` 
+RABBITMQ_URL=amqp://localhost 
 ```
 
 
 ## Base de données
 Créer une base de données MySQL
 **Exécuter les migrations**:
-
+``` 
 npx knex migrate:latest
-
+``` 
 **Démarrage de l'application**
+``` 
 npm start
+``` 
 
 **Tests**
-Exécuter la suite de tests :
+``` 
 npm test
-
+``` 
 
 ## Documentation API
 La documentation Swagger est accessible à : http://localhost:3000/documentation
@@ -82,12 +86,13 @@ La documentation Swagger est accessible à : http://localhost:3000/documentation
 La plupart des endpoints nécessitent une authentification JWT. Après connexion, incluez le token dans le header Authorization :
 
 Bearer (espace après Bearer important ! ) <votre_token> (uniquement le valeur du token pas besoin des "")
+![alt text](image-8.png)
 
 ## Rôles utilisateurs
 L'application supporte deux rôles :
 
-*user* : Accès basique aux films et favoris
-*admin* : Accès complet incluant la gestion des films et l'export CSV
+1. *user* : Accès basique aux films et favoris 
+2. *admin* : Accès complet incluant la gestion des films et l'export CSV
 
 ## Configuration des emails
 Pour le développement, utilisez Ethereal Email :
@@ -101,14 +106,20 @@ Visitez https://ethereal.email
 
 ## Configuration RabbitMQ
 **Installation sur Ubuntu** :
+``` 
 sudo apt-get update
 sudo apt-get install rabbitmq-server
+``` 
 
 **Démarrage** :
+``` 
 sudo service rabbitmq-server start
+``` 
 
 **Activation de l'interface de gestion** :
+``` 
 sudo rabbitmq-plugins enable rabbitmq_management
+``` 
 
 **Interface de gestion RabbitMQ** :
 http://localhost:15672
